@@ -24,7 +24,7 @@
     
 
     $("#searchBtn").on("click", function() {
-      var cityName = $(".whereToGo").val();
+      var cityName = $("#whereToGo").val();
       var locationQuery = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + apiKey;
       console.log(cityName)
       
