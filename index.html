@@ -11,15 +11,31 @@
     <div class="card" style="width: 400px;">
         <img src="https://images.unsplash.com/photo-1541539924877-6dc3d2adf8d3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="card-img-top" alt="Photo of great weather, and beautiful mountains">
         <div class="card-body">
-            <input></input>
-            <button type="button" class="btn btn-primary btn-sm">Search</button>
+            <input id="whereToGo" placeholder="What city are you looking for?"></input>
+            <button type="button" class="btn btn-primary btn-sm" id="searchBtn">Search</button>
           <p class="card-text">Where are you going? Let us tell you about the weather, and what the next 5 days will look like!</p>
         </div>
       </div>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
+
+    var apiKey = "d186b465bf97843fec2ed2cdc0701c7c";
+    
+
+    $("#searchBtn").on("click", function() {
+      var cityName = $(".whereToGo").val();
+      var locationQuery = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + apiKey;
+      console.log(cityName)
+      
+      $.ajax({
+        url: locationQuery,
+        method: "GET"
+      })
+    })
+
     </script>
+    
     
 </body>
 </html>
